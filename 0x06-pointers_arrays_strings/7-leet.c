@@ -3,27 +3,33 @@
 /**
  * leet - Entry point
  * ONE if, TWO loops only...
- * @n: input
+ * @s: input
  * Return: Always 0 (Success)
  */
-char *leet(char *n)
+char *leet(char *s)
 {
-	int i, x;
-	int find[] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L'};
-	int replacer[] = {'4', '3', '0', '7', '1'};
+	int a = 0, b = 0, l = 5;
+	char r[5] = {'A', 'E', 'O', 'T', 'L'};
+	char n[5] = {'4', '3', '0', '7', '1'};
 
-	for (i = 0; n[i] != '\0'; i++)
+	while (s[a])
 	{
-		for (x = 0; x <= 9; x++)
+		b = 0;
+
+		while (b < l)
 		{
-			if (n[i] == find[x])
+			if (s[a] == r[b] || s[a] - 32 == r[b])
 			{
-				n[i] = replacer[x / 2];
-				x = 9;
+				s[a] = n[b];
 			}
+
+			b++;
 		}
+
+		a++;
 	}
 
-	return (n);
+	return (s);
 }
-			
+
+
